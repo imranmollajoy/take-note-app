@@ -27,6 +27,7 @@ function App() {
     {
       id: nanoid(),
       text: "Lorem ipsum a dummy note",
+      isLocked: false,
     },
   ]);
   //get the notes from local storage
@@ -49,6 +50,13 @@ function App() {
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
+  const lockNote = (id, state) => {
+    setNotes(
+      notes.map((note) =>
+        note.id === id ? { ...note, isLocked: state } : note
+      )
+    );
+  };
   return (
     <ThemeProvider theme={theme}>
       <Header />
@@ -56,6 +64,7 @@ function App() {
         notes={notes}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
+        handleLock={lockNote}
       />
     </ThemeProvider>
   );
