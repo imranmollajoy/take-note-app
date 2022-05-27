@@ -6,8 +6,8 @@ import Masonary from "@mui/lab/Masonry";
 const NoteList = ({ notes, handleAddNote, handleDeleteNote, handleLock }) => {
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
-      <Masonary columns={{ xs: 1, md: 3, xl: 4 }} spacing={1}>
-        {notes.map((note) => (
+      <Masonary columns={{ xs: 1, md: 3 }} spacing={2}>
+        {notes.map((note, index) => (
           <Note
             key={note.id}
             id={note.id}
@@ -18,6 +18,7 @@ const NoteList = ({ notes, handleAddNote, handleDeleteNote, handleLock }) => {
             sx={{
               height: "100%",
             }}
+            index={index}
           />
         ))}
         <AddNote handleAddNote={handleAddNote} />
