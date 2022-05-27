@@ -1,12 +1,12 @@
 import React from "react";
 import Note from "./Note";
 import AddNote from "./AddNote";
-import { Grid, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Masonary from "@mui/lab/Masonry";
 const NoteList = ({ notes, handleAddNote, handleDeleteNote, handleLock }) => {
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
-      <Masonary columns={3} spacing={1}>
+      <Masonary columns={{ xs: 1, md: 3, xl: 4 }} spacing={1}>
         {notes.map((note) => (
           <Note
             key={note.id}
